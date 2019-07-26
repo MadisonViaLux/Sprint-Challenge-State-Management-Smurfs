@@ -14,7 +14,7 @@ export const getDatSmurf = () => dispatch => {
     return axios
         .get("http://localhost:3333/smurfs")
         .then(res => {
-            console.log()
+            console.log(res)
             dispatch({
                 type: GRAB_SMURF_SUCCESS,
                 payload: res.data
