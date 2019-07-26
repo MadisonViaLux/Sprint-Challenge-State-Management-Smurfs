@@ -12,7 +12,18 @@ export const getDatSmurf = () => dispatch => {
     dispatch({GRAB_SMURF_START});
 
     return axios
-        .get()
-        .then()
-        .catch()
+        .get("http://localhost:3333/smurfs")
+        .then(res => {
+            console.log()
+            dispatch({
+                type: GRAB_SMURF_SUCCESS,
+                payload: res.data
+            })
+        })
+        .catch( ({error}) => {
+            dispatch({
+                type: GRAB_SMURF_FAILURE,
+                payload: error
+            })
+        })
 }

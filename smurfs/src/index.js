@@ -5,10 +5,12 @@ import { Provider } from 'react-redux';
 import thunk from 'redux-thunk';
 import logger from 'redux-logger'
 
-
-
 import "./index.scss";
 
+
+
+
+const store = createStore(reducer, applyMiddleware(thunk, logger))
 
 class App extends Component {
 
@@ -24,7 +26,7 @@ class App extends Component {
           <div>Start inside of your `src/index.js` file!</div>
 
           <div>Have fun!</div>
-          
+
         </div>
 
       );
@@ -33,4 +35,7 @@ class App extends Component {
 
 
 
-ReactDOM.render(<App />, document.getElementById("root"));
+ReactDOM.render(
+<Provider store={store}>
+    <App />
+</Provider>, document.getElementById("root"));
