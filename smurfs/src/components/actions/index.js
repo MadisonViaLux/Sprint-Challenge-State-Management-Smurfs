@@ -9,7 +9,7 @@ export const GRAB_SMURF_FAILURE = "GRAB_SMURF_FAILURE"
 
 
 export const getDatSmurf = () => dispatch => {
-    dispatch({GRAB_SMURF_START});
+    dispatch({ type: GRAB_SMURF_START });
 
     return axios
         .get("http://localhost:3333/smurfs")

@@ -21,7 +21,7 @@ export const reducer = (state = initialState, action) => {
         case GRAB_SMURF_START:
             return {
                 ...state,
-                isLoading: true
+                isLoading: true,
             };
 
             case GRAB_SMURF_SUCCESS:

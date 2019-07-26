@@ -12,6 +12,7 @@ const SmurfData = props => {
         props.getDatSmurf()
     }
 
+    console.log(props)
 
     return(
         <div>
