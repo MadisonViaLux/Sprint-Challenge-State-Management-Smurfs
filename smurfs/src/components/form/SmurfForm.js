@@ -3,11 +3,11 @@ import React, { useState } from "react";
 
 
 
-function SmurfForm({ smurf, addDatSmurf }){
+const SmurfForm = ({ smurfs, addDatSmurf }) => {
 
-    const [theSmurfs, setTheSmurfs] = useState(smurf)
+    const [theSmurfs, setTheSmurfs] = useState(smurfs)
 
-    console.log(theSmurfs)
+    console.log('HHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHH', smurfs)
 
     const handleChange = event => {
         event.preventDefault();

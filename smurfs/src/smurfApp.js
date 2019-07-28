@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useEffect } from "react";
 import { connect } from "react-redux";
 import { getDatSmurf, addDatSmurf } from "./components/actions/index";
 
@@ -7,11 +7,14 @@ import SmurfForm from "./components/form/SmurfForm";
 
 const SmurfApp = ({ smurfs, getDatSmurf, addDatSmurf }) => {
 
+
+  console.log(smurfs)
+
   useEffect(() => {
     getDatSmurf();
   }, []);
 
-  if (smurfs && addDatSmurf) {
+
     return (
       <div>
 
@@ -21,21 +24,16 @@ const SmurfApp = ({ smurfs, getDatSmurf, addDatSmurf }) => {
 
       </div>
     );
-  } else {
-
-    return <div>Loading...</div>;
-
-  }
 };
 
 const mapStateToProps = state => {
   console.log(state)
   return {
     smurfs: state.smurfs,
+    error: state.error,
     grabbingSmurf: state.grabbingSmurf,
-    isLoading: state.isLoading,
     addingSmurf: state.addingSmurf,
-    error: state.error
+    isLoading: state.isLoading
   };
 };
 

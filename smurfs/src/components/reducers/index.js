@@ -47,8 +47,27 @@ export const reducer = (state = initialState, action) => {
                     isLoading: false, 
                 }
 
+            case ADDING_SMURF_START:
+                return {
+                    ...state,
+                    fetchingSmurfs: false,
+                    isLoading: true,
+                    addingSmurf: true,
+                    error: ""
+                };
 
-                
+            case ADDING_SMURF_SUCCESS:
+                return {
+                    ...state,
+                    fetchingSmurfs: false,
+                    isLoading: false,
+                    addingSmurf: false,
+                    error: "",
+                    smurfs: action.payload
+                };
+
+
+
 
             default: return state;
 

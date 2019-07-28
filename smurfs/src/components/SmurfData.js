@@ -4,7 +4,7 @@ import React from "react";
 
 const SmurfData = ({ smurf }) => {
 
-    console.log(smurf)
+    // console.log(smurf)
 
     return(
         <div>

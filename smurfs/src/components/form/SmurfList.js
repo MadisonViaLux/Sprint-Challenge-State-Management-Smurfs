@@ -21,7 +21,7 @@ const SmurfList = ({ smurfs }) => {
       
       <div>
       
-        <h1>Loading...</h1>
+        <h3>Loading...</h3>
       
       </div>
 
