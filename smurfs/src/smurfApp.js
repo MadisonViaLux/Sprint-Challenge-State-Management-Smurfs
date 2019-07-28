@@ -3,7 +3,7 @@ import { connect } from "react-redux";
 import { getDatSmurf, addDatSmurf } from "./components/actions/index";
 
 import SmurfList from "./components/form/SmurfList";
-// import SmurfForm from "./components/form/SmurfForm";
+import SmurfForm from "./components/form/SmurfForm";
 
 const SmurfApp = ({ smurfs, getDatSmurf, addDatSmurf }) => {
 
@@ -17,7 +17,7 @@ const SmurfApp = ({ smurfs, getDatSmurf, addDatSmurf }) => {
 
         <SmurfList smurfs={smurfs}/>
 
-        {/* <SmurfForm addDatSmurf={addDatSmurf} /> */}
+        <SmurfForm smurfs={smurfs} addDatSmurf={addDatSmurf} />
 
       </div>
     );
