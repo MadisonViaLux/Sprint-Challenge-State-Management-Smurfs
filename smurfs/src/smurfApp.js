@@ -5,12 +5,12 @@ import { getDatSmurf } from './components/actions/index'
 
 
 
-const SmurfData = props => {
+const SmurfApp = props => {
 
-    const DatSmurfy = e => {
-        e.preventDefault();
-        props.getDatSmurf()
-    }
+    // const DatSmurfy = e => {
+    //     e.preventDefault();
+    //     props.getDatSmurf()
+    // }
 
     console.log(props)
 
@@ -50,4 +50,4 @@ const mapStateToProps = state => {
 export default connect(
     mapStateToProps,
     { getDatSmurf }
-)(SmurfData)
+)(SmurfApp)
