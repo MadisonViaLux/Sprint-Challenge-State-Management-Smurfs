@@ -3,24 +3,23 @@ import {GRAB_SMURF_START, GRAB_SMURF_SUCCESS, GRAB_SMURF_FAILURE} from '../actio
 
 
 const initialState = {
+    smurfs: [],
     error: "",
     isLoading: false,
-    name: "",
-    age: "",
-    height: ""
   };
 
 
 
 export const reducer = (state = initialState, action) => {
 
-    console.log('THIS IS THE REDUCER---', action)
+    console.log('THIS IS THE REDUCER---', action.payload)
 
     switch(action.type){
 
         case GRAB_SMURF_START:
             return {
                 ...state,
+                error: 'you done messed up your code A-A-ron',
                 isLoading: true,
             };
 
@@ -29,9 +28,7 @@ export const reducer = (state = initialState, action) => {
                     ...state,
                     error: '',
                     isLoading: false,
-                    name: action.payload.name,
-                    age: action.payload.age,
-                    height: action.payload.height
+                    smurfs: action.payload
                 }
 
             case GRAB_SMURF_FAILURE:
