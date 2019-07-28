@@ -1,10 +1,16 @@
-import {GRAB_SMURF_START, GRAB_SMURF_SUCCESS, GRAB_SMURF_FAILURE} from '../actions/index'
+import {GRAB_SMURF_START,
+    GRAB_SMURF_SUCCESS, 
+    GRAB_SMURF_FAILURE, 
+    ADDING_SMURF_START,
+    ADDING_SMURF_SUCCESS} from '../actions/index'
 
 
 
 const initialState = {
     smurfs: [],
     error: "",
+    grabbingSmurf: false,
+    addingSmurf: false,
     isLoading: false,
   };
 
@@ -19,14 +25,17 @@ export const reducer = (state = initialState, action) => {
         case GRAB_SMURF_START:
             return {
                 ...state,
-                error: 'you done messed up your code A-A-ron',
+                grabbingSmurf: true,
+                error: "",
                 isLoading: true,
+                smurfs: []
             };
 
             case GRAB_SMURF_SUCCESS:
                 return {
                     ...state,
                     error: '',
+                    grabbingSmurf: false,
                     isLoading: false,
                     smurfs: action.payload
                 }
@@ -37,6 +46,9 @@ export const reducer = (state = initialState, action) => {
                     error: 'you done messed up your code A-A-ron',
                     isLoading: false, 
                 }
+
+
+                
 
             default: return state;
 
