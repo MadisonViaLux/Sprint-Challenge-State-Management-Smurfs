@@ -1,53 +1,45 @@
-import React from "react";
-import Loader from "react-loader-spinner";
+import React, { useState, useEffect } from "react";
 import { connect } from "react-redux";
-import { getDatSmurf } from './components/actions/index'
+import { getDatSmurf, addDatSmurf } from "./components/actions/index";
 
+import SmurfList from "./components/form/SmurfList";
+// import SmurfForm from "./components/form/SmurfForm";
 
+const SmurfApp = ({ smurfs, getDatSmurf, addDatSmurf }) => {
 
-const SmurfApp = props => {
+  useEffect(() => {
+    getDatSmurf();
+  }, []);
 
-    // const DatSmurfy = e => {
-    //     e.preventDefault();
-    //     props.getDatSmurf()
-    // }
+  if (smurfs && addDatSmurf) {
+    return (
+      <div>
 
-    console.log(props)
+        <SmurfList smurfs={smurfs}/>
 
-    return(
-        <div>
+        {/* <SmurfForm addDatSmurf={addDatSmurf} /> */}
 
-            <h2>Name: {props.name}</h2>
+      </div>
+    );
+  } else {
 
-            <p>Age: {props.age}</p>
+    return <div>Loading...</div>;
 
-            <p>Height: {props.height}</p>
-
-            <button onClick={DatSmurfy}>here</button>
-
-            {props.error && <p> {props.error} </p>}
-
-            {props.isLoading && (<Loader type="Ball-Triangle" color="#00BFFF" height="90" width="60" />)}
-
-        </div>
-    )
-
-
-}
-
+  }
+};
 
 const mapStateToProps = state => {
-    return{
-        error: state.error,
-        isLoading: state.isLoading,
-        name: state.name,
-        age: state.age,
-        height: state.height
-    }
-}
-
+  console.log(state)
+  return {
+    smurfs: state.smurfs,
+    grabbingSmurf: state.grabbingSmurf,
+    isLoading: state.isLoading,
+    addingSmurf: state.addingSmurf,
+    error: state.error
+  };
+};
 
 export default connect(
-    mapStateToProps,
-    { getDatSmurf }
-)(SmurfApp)
+  mapStateToProps,
+  { getDatSmurf, addDatSmurf }
+)(SmurfApp);
